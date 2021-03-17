@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     //Timer
 
-    const deadline = '2021-03-15';
+    const deadline = '2021-05-30';
 
     function getTimeRemaining(endtime) {
         const t = Date.parse(endtime) - Date.parse(new Date()),
@@ -97,6 +97,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     setClock('.timer', deadline);
+
+    //Modal
+
+    const btnModal = document.querySelector('[data-modal]');
+          modal = document.querySelector('.modal'),
+          closeModal = document.querySelector('[data-close]');
+          
+          btnModal.addEventListener('click', () => {
+            modal.classList.add('show');
+            modal.classList.remove('hide');
+          });
+          
+          closeModal.addEventListener('click', () => {
+            modal.classList.add('hide');
+            modal.classList.remove('show');
+          });
+        
+    
 
 }); //end
 
