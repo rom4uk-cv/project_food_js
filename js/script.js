@@ -100,22 +100,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Modal
 
-    const btnModal = document.querySelector('[data-modal]');
+    const btnOpenModal = document.querySelectorAll('[data-modal]');
           modal = document.querySelector('.modal'),
-          closeModal = document.querySelector('[data-close]');
+          btnCloseModal = document.querySelector('[data-close]');
           
-          btnModal.addEventListener('click', () => {
+        btnOpenModal.forEach(btn => {
+        btn.addEventListener('click', () => {
             modal.classList.add('show');
             modal.classList.remove('hide');
-          });
-          
-          closeModal.addEventListener('click', () => {
+            document.body.style.overflow = 'hidden';
+            });
+        })
+        
+        function closeModal() {
             modal.classList.add('hide');
             modal.classList.remove('show');
-          });
-        
-    
+            document.body.style.overflow = '';
+        }
 
+        btnCloseModal.addEventListener('click', closeModal);
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target == modal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Escape' && modal.classList.contains('show')) { //если нажата кнопка esc и стоит класс show
+                closeModal();
+            }
+        });
 }); //end
 
  
