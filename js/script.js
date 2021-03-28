@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Modal
 
-    const btnOpenModal = document.querySelectorAll('[data-modal]');
+    const btnOpenModal = document.querySelectorAll('[data-modal]'),
           modal = document.querySelector('.modal');
           
         function openModal() {
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         btnOpenModal.forEach(btn => {
             btn.addEventListener('click', openModal);
-        })
+        });
 
         modal.addEventListener('click', (e) => {
             if (e.target == modal || e.target.getAttribute('data-close') == '') {

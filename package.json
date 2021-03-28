@@ -1,0 +1,22 @@
+{
+  "name": "project_food",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rom4uk-cv/project_food_js.git"
+  },
+  "author": "Roman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rom4uk-cv/project_food_js/issues"
+  },
+  "homepage": "https://github.com/rom4uk-cv/project_food_js#readme",
+  "devDependencies": {
+    "json-server": "^0.16.3"
+  }
+}
