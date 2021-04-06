@@ -282,6 +282,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 4000);
     }
 
+    //Slider
+    const slides = document.querySelectorAll('.offer__slide'),
+          arrowPrevSlide = document.querySelector('.offer__slider-prev'),
+          arrowNextSlide = document.querySelector('.offer__slider-next'),
+          numberTotalSlide = document.querySelector('#total'),
+          numberActiveSlide = document.querySelector('#current');
+   
+    let slideIndex = 1;
+    
+    showSlides (slideIndex);
+
+    numberTotalSlide.textContent = getZero(slides.length);
+
+    function showSlides(n) {
+        if (n > slides.length) {
+            slideIndex = 1;
+        }
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
+
+        slides.forEach(slide =>{
+            slide.classList.add('hide');
+        });
+
+        slides[slideIndex - 1].classList.add('show', 'fade');
+        slides[slideIndex - 1].classList.remove('hide');
+
+        numberActiveSlide.textContent = getZero(slideIndex);
+    }
+
+    function shiftSlide(n) {
+        showSlides(slideIndex += n); 
+    }
+
+    arrowPrevSlide.addEventListener ('click', () => {
+        shiftSlide(-1);
+    });
+
+    arrowNextSlide.addEventListener ('click', () => {
+        shiftSlide(1);
+    });
+
 }); //end
 
  
